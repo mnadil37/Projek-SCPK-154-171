@@ -394,7 +394,7 @@ POOL_KRITERIA = {
 # DATA LOADER
 @st.cache_data
 def load_data():
-    df = pd.read_csv('projek/camera_dataset_cleaned.csv')
+    df = pd.read_csv('Projek/camera_dataset_cleaned.csv')
     numeric_cols = list(POOL_KRITERIA.keys())
     df = df.dropna(subset=numeric_cols)
     df['Price'] = df['Price'] * 17839
@@ -1294,7 +1294,7 @@ elif menu == "Profil":
 
     col_img, col_info = st.columns([1, 3], gap="large")
     with col_img:
-        st.image("ea1.jpg", width=130)
+        st.image("Projek/ea1.jpg", width=130)
     with col_info:
         st.markdown("""
         <div class="profile-detail">
@@ -1307,7 +1307,7 @@ elif menu == "Profil":
 
     col_img, col_info = st.columns([1, 3], gap="large")
     with col_img:
-        st.image("ea.jpg", width=130)
+        st.image("Projek/ea.jpg", width=130)
     with col_info:
         st.markdown("""
         <div class="profile-detail">
