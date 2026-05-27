@@ -1081,7 +1081,6 @@ Agar penilaian perbandingan Anda lebih objektif, berikut adalah arti dari masing
             norm_cols = [f'norm_{k}' for k in selected_kriteria]
             df_norm_saw = df_k[['Model'] + norm_cols].copy()
             
-            # Ubah nama kolom agar rapi saat ditampilkan
             rename_dict = {f'norm_{k}': k for k in selected_kriteria}
             df_norm_saw.rename(columns=rename_dict, inplace=True)
             df_norm_saw.index = range(1, len(df_norm_saw) + 1)
@@ -1108,17 +1107,17 @@ Agar penilaian perbandingan Anda lebih objektif, berikut adalah arti dari masing
                 unsafe_allow_html=True
             )
             
-            # Membuat dataframe untuk menampilkan hasil R x W
+            #dataframe untuk menampilkan hasil R x W
             df_skor = df_k[['Model']].copy()
             for i, k in enumerate(selected_kriteria):
-                # Format nama kolom agar mencantumkan bobot pengalinya
+                #mencantumkan bobot pengalinya
                 nama_kolom = f"{k} (× {eigen_vector[i]:.3f})"
                 df_skor[nama_kolom] = df_k[f'norm_{k}'] * eigen_vector[i]
                 
             df_skor['Skor Akhir'] = df_k['Skor Akhir']
             df_skor.index = range(1, len(df_skor) + 1)
             
-            # Siapkan format 4 angka di belakang koma untuk seluruh kolom numerik
+            
             format_skor = {col: "{:.4f}" for col in df_skor.columns if col != 'Model'}
             
             st.dataframe(
