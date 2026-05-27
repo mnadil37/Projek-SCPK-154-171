@@ -394,7 +394,7 @@ POOL_KRITERIA = {
 # DATA LOADER
 @st.cache_data
 def load_data():
-    df = pd.read_csv('camera_dataset_cleaned.csv')
+    df = pd.read_csv('projek/camera_dataset_cleaned.csv')
     numeric_cols = list(POOL_KRITERIA.keys())
     df = df.dropna(subset=numeric_cols)
     df['Price'] = df['Price'] * 17839
